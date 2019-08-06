@@ -1,0 +1,6 @@
+.vs/
+ConcurrencyInDotNet/bin/
+ConcurrencyInDotNet/obj/
+ConcurrencyInDotNetFSharp/bin/
+ConcurrencyInDotNetFSharp/obj/
+packages/

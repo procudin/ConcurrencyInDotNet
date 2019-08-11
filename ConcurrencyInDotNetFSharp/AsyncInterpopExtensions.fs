@@ -18,7 +18,7 @@ module private AsyncInterop =
             let token = defaultArg token Async.DefaultCancellationToken
             task.ContinueWith(new Action<Task>(fun _ -> 
                 if task.IsFaulted then caught(task.Exception)
-                else if task.IsCanceled then canceled(new OperationCanceledException(token) |> raise)
+                elif task.IsCanceled then canceled(new OperationCanceledException(token))
                 else completed()), token)
             |> ignore)
 
@@ -27,7 +27,7 @@ module private AsyncInterop =
             let token = defaultArg token Async.DefaultCancellationToken
             task.ContinueWith(new Action<Task<'T>>(fun _ -> 
                 if task.IsFaulted then caught(task.Exception)
-                else if task.IsCanceled then canceled(new OperationCanceledException(token) |> raise)
+                elif task.IsCanceled then canceled(new OperationCanceledException(token))
                 else completed(task.Result)), token)
             |> ignore)
 

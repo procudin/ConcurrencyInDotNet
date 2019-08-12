@@ -33,7 +33,7 @@ type TaskExtensions =
    
     [<Extension>]
     static member Select(input: Task<'T>, selector: Func<'T, 'U>) : Task<'U> = 
-        TaskExtensions.Select(input, fun x -> selector.Invoke(x))
+        input.ContinueWith(fun (task:Task<'T>) -> selector.Invoke(task.Result))
 
     [<Extension>]
     static member SelectMany(input: Task<'T>, selector: Func<'T, Task<'I>>, projection: Func<'T, 'I, 'R>) : Task<'R> = 

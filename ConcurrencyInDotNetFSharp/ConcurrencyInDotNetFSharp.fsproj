@@ -48,6 +48,7 @@
     <Compile Include="DictionaryAgent.fs" />
     <Content Include="packages.config" />
     <Compile Include="AsyncInterpopExtensions.fs" />
+    <Compile Include="TaskExtensions.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
